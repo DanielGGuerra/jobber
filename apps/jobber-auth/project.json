@@ -7,9 +7,7 @@
   "targets": {
     "build": {
       "executor": "nx:run-commands",
-      "dependsOn": [
-        { "target": "generate-types" }
-      ],
+      "dependsOn": [{ "target": "generate-types" }],
       "options": {
         "command": "webpack-cli build",
         "args": ["node-env=production"]
@@ -38,6 +36,7 @@
       }
     },
     "test": {
+      "dependsOn": [{ "target": "generate-types" }],
       "options": {
         "passWithNoTests": true
       }

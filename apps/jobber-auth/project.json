@@ -7,6 +7,9 @@
   "targets": {
     "build": {
       "executor": "nx:run-commands",
+      "dependsOn": [
+        { "target": "generate-types" }
+      ],
       "options": {
         "command": "webpack-cli build",
         "args": ["node-env=production"]
@@ -37,6 +40,18 @@
     "test": {
       "options": {
         "passWithNoTests": true
+      }
+    },
+    "generate-types": {
+      "command": "prisma generate",
+      "options": {
+        "cwd": "apps/jobber-auth"
+      }
+    },
+    "migrate-prisma": {
+      "command": "prisma migrate dev",
+      "options": {
+        "cwd": "apps/jobber-auth"
       }
     }
   }

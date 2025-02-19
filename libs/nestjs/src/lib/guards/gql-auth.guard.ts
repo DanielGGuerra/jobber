@@ -14,7 +14,6 @@ import {
   AuthServiceClient,
 } from 'types/proto/auth';
 import { GqlExecutionContext } from '@nestjs/graphql';
-import { Request } from 'express';
 
 @Injectable()
 export class GqlAuthGuard implements CanActivate, OnModuleInit {
